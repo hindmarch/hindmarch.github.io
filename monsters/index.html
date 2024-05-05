@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Monsters</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <aside>
+        <h1>Monster Creator</h1>
+        <button onclick="createMonster()">Create a monster</button>
+    </aside>
+
+    <section>
+        <div id="head"></div>
+        <div id="body"></div>
+        <div id="legs"></div>
+    </section>
+    <script>
+
+        function addPart(part, num) {
+            const im = document.createElement('img');
+            im.src = `./images/${part}_${num}.png`;
+            return im;
+        }
+
+        function getRandomNumber() {
+            return Math.floor(Math.random() * 6) + 1;
+        }
+
+
+        function createMonster() {
+            const head = document.getElementById('head');
+            head.innerHTML = '';
+            head.appendChild(
+                addPart('head', getRandomNumber())
+            );
+
+            const body = document.getElementById('body');
+            body.innerHTML = '';
+            body.append(
+                addPart('body', getRandomNumber())
+            );
+
+            const legs = document.getElementById('legs');
+            legs.innerHTML = '';
+            legs.append(
+                addPart('legs', getRandomNumber())
+            );
+        }
+
+</script>
+</body>
+</html>
